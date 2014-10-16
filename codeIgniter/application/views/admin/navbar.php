@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="index.html"> <img alt="Charisma Logo" src="<?php echo base_url(); ?>assets/img/logo20.png" class="hidden-xs"/>
-                <span>Charisma</span></a>
+                <span>Admin Panel</span></a>
 
             <!-- user dropdown starts -->
             <div class="btn-group pull-right">
