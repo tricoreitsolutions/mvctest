@@ -25,10 +25,7 @@ class C_verifyLogin extends CI_Controller {
         $this->load->view('admin/login_form',$data);
            
             } else {
-				if (!$this->input->post('remember_me')) {
-                $this->session->sess_expiration = 7200;
-                $this->session->sess_expire_on_close = TRUE;
-            }
+				
                 //Go to private area
                 redirect(base_url('admin/dashboard'), 'refresh');
             }       
@@ -43,17 +40,24 @@ class C_verifyLogin extends CI_Controller {
              $sess_array = array();
              foreach($result as $row) {
                  //create the session
-                 $sess_array = array('id_admin' => $row->id_admin,
-                     'name_admin' => $row->name_admin
+                 $sess_array = array('id' => $row->id,
+                     'username' => $row->username
                      );
                  //set session with value from database
                  $this->session->set_userdata('logged_in', $sess_array);
+                 $this->session->set_userdata('EXPIRES', time());
                  }
           return TRUE;
           } else {
               //if form validate false
-              $this->form_validation->set_message('check_database', 'Invalid username or password');
+             // $this->form_validation->set_message('check_database', 'Invalid username or password');
+
+                 $this->session->set_userdata('invalid_login','Invalid username or password');
               return FALSE;
+             // $_SESSION['upass'] = "<b> Username or Password is Invalid </b>";
+		      
+		     // redirect(base_url('admin/c_verifylogin'), 'refresh');
+		     // exit;
           }
       }
 }

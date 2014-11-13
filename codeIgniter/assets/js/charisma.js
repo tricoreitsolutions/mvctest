@@ -57,7 +57,7 @@ $(document).ready(function () {
     $('#is-ajax').click(function (e) {
         $.cookie('is-ajax', $(this).prop('checked'), {expires: 365});
     });
-    $('#is-ajax').prop('checked', $.cookie('is-ajax') === 'true' ? true : false);
+    //$('#is-ajax').prop('checked', $.cookie('is-ajax') === 'true' ? true : false);
 
     //disbaling some functions for Internet Explorer
     if (msie) {

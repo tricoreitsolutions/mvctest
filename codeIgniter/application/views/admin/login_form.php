@@ -1,7 +1,8 @@
-	
+	<script type='text/javascript' src='<?php echo base_url(); ?>assets/js/validate.js'></script>  
+<link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
 <div class="row">
 	<div class="col-md-12 center login-header">
-		<h2>Welcome to your admin panel</h2>
+		<h2>Welcome to Your Politician admin panel</h2>
 	</div>        
 </div>
 <div class="row">
@@ -9,8 +10,20 @@
 		<div class="alert alert-info">
 			Please login with your Username and Password.
 		</div>
-		<?php echo validation_errors(); ?>
-		<?php echo form_open('admin/c_verifylogin'); ?> 
+		<?php //echo validation_errors(); ?>
+		
+			<?php
+			
+				if($this->session->userdata('invalid_login'))
+				{
+					echo $this->session->userdata('invalid_login');
+					$this->session->unset_userdata('invalid_login');
+				}
+			?> 
+			
+		
+	 <form role="form" method="post" name="login" id="login" onSubmit="return loginForm();" action="<?php echo base_url(); ?>admin/c_verifylogin" >
+
 		<fieldset>
 			<div class="input-group input-group-lg">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-user red"></i></span>
@@ -23,16 +36,16 @@
 			</div>
 			<div class="clearfix"></div>
 
-			<div class="input-prepend">
+			<!--<div class="input-prepend">
 				<label class="remember"  name="remember" for="remember"><input type="checkbox" name='remember_me' id="remember"> Remember me</label>
-			</div>
+			</div>-->
 			<div class="clearfix"></div>
 			
 			<p class="center col-md-5">
-				<button type="submit" class="btn btn-primary">Login</button>
+				<input type="submit" name='submit' value='Login' class="btn btn-primary">
 			</p>
 		</fieldset>
-		<?php echo form_close(); ?>                    
+		</form>              
 	</div>
 </div>
 </div>

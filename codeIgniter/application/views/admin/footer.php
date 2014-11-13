@@ -1,12 +1,11 @@
+</div>
 <footer class="row">
         <p class="col-md-9 col-sm-9 col-xs-12 copyright">&copy; <a href="http://www.tricoreitsolutions.com" target="_blank">TriCore InfoTech</a> 2012 - 2014</p>
 
-        <p class="col-md-3 col-sm-3 col-xs-12 powered-by">Developed by: <a
+      <!--  <p class="col-md-3 col-sm-3 col-xs-12 powered-by">Developed by: <a
                 href="http://usman.it/free-responsive-admin-template">TriCore InfoTech Pvt Ltd</a></p>
-    </footer>
+    --> </footer>
 
-
-</div>
 <script src="<?php echo base_url(); ?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
 <!-- library for cookie management -->

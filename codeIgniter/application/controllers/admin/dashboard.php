@@ -4,7 +4,8 @@ class Dashboard extends CI_Controller {
 	
     function __construct() {
         parent::__construct();
-        $this->load->model('admin/m_login','',TRUE);
+		$this->load->model('admin/m_login','',TRUE);
+       // $this->load->model(array('admin/m_login','admin/zip_model','admin/designation_model','admin/contact_model','admin/city_model'));
         $this->load->helper('url');
         $this->load->library(array('form_validation','session'));
     }
@@ -13,9 +14,13 @@ class Dashboard extends CI_Controller {
         if($this->session->userdata('logged_in'))
         {
             $session_data = $this->session->userdata('logged_in');
-            $data['username'] = $session_data['name_admin'];
-            $data['id'] = $session_data['id_admin'];
+            $data['username'] = $session_data['username'];
+            $data['id'] = $session_data['id'];
             $data['title'] = "Dashboard";
+     //       $data['count_contact'] = $this->contact_model->count_contact();
+        //    $data['count_city'] = $this->city_model->count_city();
+        //    $data['count_designation'] = $this->designation_model->count_designation();
+         //   $data['count_zipcodes'] = $this->zip_model->count_zipcodes();         
             $this->load->view('admin/header', $data);
             $this->load->view('admin/navbar', $data);
             $this->load->view('admin/leftsidebar', $data);            
